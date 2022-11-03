@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'users/show'
+    get 'users/edit'
+  end
   devise_for :users,skip: [:passwords], controllers:{
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -16,6 +20,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only:[:index, :show, :update]
     resources :messages
+    resources :tags
     
     root to: 'homes#top'
   end
