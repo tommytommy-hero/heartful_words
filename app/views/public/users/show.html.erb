@@ -1,2 +1,17 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <%= link_to "あたらしいことば", new_message_path %>
+      <h4>じぶんのことば</h4>
+      <table class="table">
+        <% @messages.each do |message| %>
+        <tr>
+          <td class="col-8"><%= safe_join(message.text.split("\n"),tag(:br)) %></td>
+          <td><%= link_to "編集", edit_message_path(message.id), class: "btn btn-success" %></td>
+          <td><%= link_to "削除", message_path(message.id), method: :delete, class: "btn btn-danger" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
