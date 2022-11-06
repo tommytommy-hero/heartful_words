@@ -1,10 +1,22 @@
-      <%= form_with model: message, local: true do |f| %>
-      <div class="field">
-        <%= f.text_area :text, placeholder: "いいことば" %>
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel">作成</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
-      <div class="field">
+      <%= form_with model: message, local: false, class: "text-center" do |f| %>
+      <div class="modal-body">
+        <%= f.text_area :text, class: "mb-3", placeholder: "いいことば" %><br>
         <%= f.collection_select :tag_id, tags, :id, :tagname,
-            include_blanck: "--選択してください--" %>
-        <%= f.submit "ことば", class: "btn btn-success" %>
+        　　include_blanck: "--選択してください--" %><br><br>
+        <div class="modal_submit">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i>ことば</button>
+        </div>
       </div>
       <% end %>
+    </div>
+  </div>
+</div
