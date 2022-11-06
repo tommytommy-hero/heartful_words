@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h4>あらためたことば</h4>
-      <%= render "public/messages/form", message: @message, tags: @tags %>
+      <%= form_with model: @message, local: true do |f| %>
+      <div class="field">
+        <%= f.text_area :text, placeholder: "いいことば", class: "w-100" %>
+      </div>
+      <div class="field text-center">
+        <%= f.collection_select :tag_id, @tags, :id, :tagname,
+            include_blanck: "--選択してください--" %><br><br>
+        <%= f.submit "ことば", class: "btn btn-success" %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

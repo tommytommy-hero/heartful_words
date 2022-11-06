@@ -1,19 +1,10 @@
 class Public::MessagesController < ApplicationController
 
-  def new
-    @message = Message.new
-    @tags = Tag.all
-  end
-
   def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    if @message.save
-      redirect_to user_path(current_user)
-    else
-      @tags = Tag.all
-      render "new"
-    end
+    @message.save
+    redirect_to user_path(current_user)
   end
 
   def edit
@@ -23,11 +14,8 @@ class Public::MessagesController < ApplicationController
 
   def update
     @message = Message.find(params[:id])
-    if @message.update(message_params)
-      redirect_to user_path(current_user)
-    else
-      render "edit"
-    end
+    @message.update(message_params)
+    redirect_to user_path(current_user)
   end
 
   def destroy
