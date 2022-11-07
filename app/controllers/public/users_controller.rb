@@ -3,7 +3,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @message = Message.new
     @tags = Tag.all
-    @messages = @user.messages
+    @messages = @user.messages.order(created_at: :desc).page(params[:page])
   end
 
   def edit

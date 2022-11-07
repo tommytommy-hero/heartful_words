@@ -11,18 +11,12 @@
   <div class="row">
     <div class="col-8 mx-auto">
       <h4>じぶんのことば</h4>
-      <table class="table">
-        <% @messages.each do |message| %>
-        <tr>
-          <td class="col-8"><%= safe_join(message.text.split("\n"),tag(:br)) %></td>
-          <td><%= link_to "編集", edit_message_path(message.id), class: "btn btn-success" %></td>
-          <td><%= link_to "削除", message_path(message.id), method: :delete, class: "btn btn-danger" %></td>
-        </tr>
-        <% end %>
-      </table>
+      <div id="messages-list">
+        <%= render "public/messages/show", messages: @messages, message: @message, tags: @tags %>
+      </div>
+      <div class="more text-center">
+        <%= link_to_next_page @messages, 'もっと見る', remote: true, id: "view-more" %>
+      </div>
     </div>
   </div>
 </div>
-
-
-
