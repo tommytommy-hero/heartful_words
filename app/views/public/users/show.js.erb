@@ -1,0 +1,4 @@
+$('#messages-list').append("<%= escape_javascript( render "public/messages/show", messages: @messages, message: @message, tags: @tags) %>")
+$("#view-more").replaceWith("<%= escape_javascript(
+  link_to_next_page(@messages, 'もっと見る', remote: true, id: "view-more")
+) %>");
