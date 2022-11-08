@@ -12,18 +12,20 @@ Rails.application.routes.draw do
   }
   scope module: :public do
     resources :users, only:[:show, :edit, :update]
-    resources :messages
-    
+    resources :messages do
+      resource :favorites, only:[:create, :destroy]
+    end
+
     root to: 'homes#top'
   end
-  
+
   namespace :admin do
     resources :users, only:[:index, :show, :update]
     resources :messages
     resources :tags
-    
+
     root to: 'homes#top'
   end
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
