@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   scope module: :public do
-    resources :users, only:[:show, :edit, :update]
+    resources :users, only:[:show, :edit, :update] do
+      member do
+        get :favorites
+      end
+    end
     resources :messages do
       resource :favorites, only:[:create, :destroy]
     end

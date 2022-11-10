@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto text-center">
+      <% @messages.each do |message| %>
+        <%= message.text %>
+        <% if user_signed_in? %>
+        <div id="message_<%= message.id %>">
+          <%= render "public/favorites/favorite", message: message %>
+        </div>
+        <% end %>
+      <% end %>
+      <div class="click">
+      <%= link_to "クリック", favorites_user_path(@user), class: "btn btn-outline-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>
