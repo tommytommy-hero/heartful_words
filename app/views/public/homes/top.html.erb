@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto text-center">
+      <div class="message-flame mx-auto">
       <% @messages.each do |message| %>
-        <%= message.text %>
+        <%= safe_join(message.text.split("\n"),tag(:br)) %>
+      </div>
         <% if user_signed_in? %>
         <div id="message_<%= message.id %>">
           <%= render "public/favorites/favorite", message: message %>
-        </div>
+        </div><br>
         <% end %>
       <% end %>
       <div class="click">

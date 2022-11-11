@@ -1,13 +1,9 @@
 <% if message.favorited?(current_user) %>
-  <p class="count">
     <%= link_to message_favorites_path(message), method: :delete, remote: true do %>
         <%= image_tag "line_heart.jpg", style: "width: 20px" %>
     <% end %>
-  </p>
 <% else %>
-  <p class="count">
     <%= link_to message_favorites_path(message), method: :post, remote: true do %>
         <%= image_tag "heart.jpg", style: "width: 20px" %>
     <% end %>
-  </p>
 <% end %>
