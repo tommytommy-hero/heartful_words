@@ -1,0 +1,30 @@
+*{
+  font-family: 'Hannotate TC',sans-serif;
+}
+.message-flame{
+  width: 60%;
+  padding: 30px;
+  border: 1px solid #000000;
+}
+
+.favorite{
+  opacity: 0.5;
+}
+.smart {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+ .pc {
+  display: none;
+ }
+ .smart {
+ display: block;
+ }
+}
+
+@media screen and (max-width: 767px) {
+ .smart {
+   font-size: 0.7em;
+ }
+}
