@@ -3,17 +3,8 @@
   <%= safe_join(message.text.split("\n"),tag(:br)) %><br>
   <div class="text-center">
     <%= link_to "編集", edit_message_path(message.id), class: "btn btn-success btn-sm" %>
-    <%= link_to "削除", message_path(message.id), method: :delete, class: "btn btn-danger btn-sm" %>
+    <%= link_to "削除", message_path(message.id), method: :delete, data: {confirm: "削除しますか？"},
+        class: "btn btn-danger btn-sm", remote: true %>
   </div>
 </div><br>
 <% end %>
-
-<table class="table pc">
-  <% messages.each do |message| %>
-  <tr>
-    <td class="col-8"><%= safe_join(message.text.split("\n"),tag(:br)) %></td>
-    <td><%= link_to "編集", edit_message_path(message.id), class: "btn btn-success btn-sm" %></td>
-    <td><%= link_to "削除", message_path(message.id), method: :delete, class: "btn btn-danger btn-sm" %></td>
-  </tr>
-  <% end %>
-</table>

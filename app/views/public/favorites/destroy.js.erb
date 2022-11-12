@@ -1,1 +1,2 @@
-$("#message_<%= @message.id %>").html('<%= j(render "public/favorites/favorite", message: @message) %>');
+$(".recipe-index").html('<%= j(render "public/comments/index", recipe: @recipe) %>');
+$(".recipe_comments").html('<%= j(render "public/comments/form") %>');

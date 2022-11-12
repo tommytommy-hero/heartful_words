@@ -10,11 +10,11 @@
 .favorite{
   opacity: 0.5;
 }
-.smart {
-  display: none;
-}
 
 @media screen and (max-width: 992px) {
+  .message-flame{
+    width: 100%;
+  }
  .pc {
   display: none;
  }
