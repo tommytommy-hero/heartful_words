@@ -1,5 +1,14 @@
 <div class="container">
   <div class="row">
+    <div class="col-5 mx-auto">
+      <%= @user.name %>
+      <p>すきなことば<span>　　<%= @user.favorites.count %></span></p>
+      <%= link_to "ユーザー編集", edit_user_path %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-3 mx-auto text-center">
       <button type="button" class="btn btn-outline-success btn-sm"
       data-toggle="modal" data-target="#commentModal" data-whatever="@message">投稿</button>
