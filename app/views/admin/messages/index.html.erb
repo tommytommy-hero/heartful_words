@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h4>ことば一覧</h4>
+      <% @messages.each do |message| %>
+      <div class="message-index smart text-center">
+        <%= safe_join(message.text.split("\n"),tag(:br)) %><br>
+        <div class="text-center">
+          <%= link_to "編集", edit_admin_message_path(message.id), class: "btn btn-success btn-sm" %>
+          <%= link_to "削除", admin_message_path(message.id), method: :delete, class: "btn btn-danger btn-sm" %>
+        </div>
+      </div><br>
+      <% end %>
+
+      <table class="table pc">
+        <% @messages.each do |message| %>
+        <tr>
+          <td><%= message.user.name %></td>
+          <td class="col-8"><%= safe_join(message.text.split("\n"),tag(:br)) %></td>
+          <td><%= link_to "編集", edit_admin_message_path(message.id), class: "btn btn-success btn-sm" %></td>
+          <td><%= link_to "削除", admin_message_path(message.id), method: :delete, class: "btn btn-danger btn-sm" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
