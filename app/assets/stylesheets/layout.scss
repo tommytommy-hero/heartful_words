@@ -1,8 +1,23 @@
 *{
   font-family: 'Hannotate TC',sans-serif;
 }
+
+header{
+  width: 100%;
+}
+
+.navbar-toggle{
+  text-align: right
+}
+li{
+  text-align: right
+}
+.nav-item{
+  font-size: 20px;
+  margin: 0 10px;
+}
 .message-flame{
-  width: 60%;
+  width: 100%;
   padding: 30px;
   border: 1px solid #000000;
 }
