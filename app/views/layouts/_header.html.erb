@@ -1,23 +1,24 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
+      <!--ユーザログイン-->
       <% if user_signed_in? %>
       <a class="navbar-brand" href="/">
         <p>ことばのひろば</p>
       </a>
-      <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <%= link_to "すきなことば", favorites_user_path(current_user) %>
+            <%= link_to "すきなことば", favorites_user_path(current_user),class: 'nav-link text-dark' %>
           </li>
           <li class="nav-item">
-            <%= link_to "マイページ", user_path(current_user) %>
+            <%= link_to "マイページ", user_path(current_user),class: 'nav-link text-dark' %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'nav-link text-dark' %>
           </li>
         </ul>
       </div>
@@ -29,7 +30,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <%= link_to "ことばリスト", admin_messages_path %>
           </li>
@@ -49,7 +50,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
             <%= link_to "新規登録", new_user_registration_path,class: 'nav-link text-dark' %>
           </li>
