@@ -1,9 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-5 mx-auto">
-      <%= @user.name %>
-      <p>すきなことば<span>　　<%= @user.favorites.count %></span></p>
-      <%= link_to "ユーザー編集", edit_user_path %>
+      <div class="user-name text-center"><%= @user.name %></div>
+      <p class="text-center">すきなことば
+        <span>
+          <%= link_to message_favorites_path(current_user) do %>
+            <%= @user.favorites.count %>
+          <% end %>
+        </span>
+      </p>
+      <div class="text-center">
+        <%= link_to "ユーザー編集", edit_user_path, class:"btn btn-primary btn-sm" %>
+      </div><br>
     </div>
   </div>
 </div>
@@ -16,10 +24,10 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h4>じぶんのことば</h4>
+      <h4 class="text-center">じぶんのことば</h4>
       <div id="messages-list">
         <%= render "public/messages/show", messages: @messages, message: @message, tags: @tags %>
       </div>
