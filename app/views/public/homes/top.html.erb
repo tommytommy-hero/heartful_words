@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-9 mx-auto text-center">
+    <div class="col-sm-12 col-md-9 mx-auto text-center mt-5">
       <div class="message-flame mx-auto">
       <% @messages.each do |message| %>
         <%= safe_join(message.text.split("\n"),tag(:br)) %>
