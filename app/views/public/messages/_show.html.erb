@@ -2,14 +2,14 @@
 <div class="message-index smart text-center">
   <% messages.each do |message| %>
   <div class="message-flame-index">
-    <%= safe_join(message.text.split("\n"),tag(:br)) %><br>
+    <%= safe_join(message.text.split("\n"),tag(:br)) %><br><br>
     <div class="text-center">
       <%= link_to "編集", edit_message_path(message.id), class: "btn btn-success btn-sm" %>
       <%= link_to "削除", message_path(message.id), method: :delete, class: "btn btn-danger btn-sm" %>
     </div>
   </div><br>
   <% end %>
-</div><br>
+</div>
 
 <!--PC対応-->
 <table class="table pc">
