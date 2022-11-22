@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 mx-auto">
+    <div class="col-8 mx-auto text-center">
       <%= form_with model: @user, local: true do |f| %>
-      <div class="form-group offset-2">
+      <div class="form-group">
         <%= f.label :ニックネーム %><br>
         <%= f.text_field :name, class: "form-size" %>
       </div><br>
