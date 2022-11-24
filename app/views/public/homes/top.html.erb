@@ -1,6 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12 col-md-9 mx-auto text-center mt-5">
+      <div class="about">
+        <p>だれもがことばをほしがっている<br>
+        あたたかいことば<br>
+        やさしいことば<br>
+        げんきのでることばに<br>
+        ゆうきのでることば<br>
+        ほしいことばがきっとみつかる<br>
+        じぶんにとってのいいことば
+        </p>
+      </div>
       <div class="message-flame mx-auto">
       <% @messages.each do |message| %>
         <%= safe_join(message.text.split("\n"),tag(:br)) %>
